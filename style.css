@@ -1,0 +1,56 @@
+/* GENERAL STYLE */
+*{
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    text-decoration: underline;
+}
+input{
+    outline: none;
+    border: none;
+}
+/* HEADER STYLE */
+header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f2f2f2;
+    height: 64px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+header h1{
+    padding-left: 10px;
+}
+/* SEARCH SECTION STYLE */
+
+/* MAIN CONTAINER STYLE */
+main{
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+}
+/* FOOTER STYLE */
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f2f2f2;
+    height: 64px;
+}
