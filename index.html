@@ -10,21 +10,25 @@
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 </head>
 
-<body>
+<body onload="loadWeatherData('Vienna')">
     <!-- HEADER -->
     <header>
         <h1>Weather App</h1>
-        <form id="search-form">
-            <input type="text" id="search-input" placeholder="Enter a city" required>
-            <button type="submit">Search</button>
-        </form>
+
     </header>
     <!-- SEARCH SECTION -->
     <section class="search-section">
+        <form id="search-form" onsubmit="handleFormSubmit(event)">
+            <input type="text" id="search-input" placeholder="Enter a city" required>
+            <button type="submit">Search</button>
+        </form>
     </section>
     <!-- MAIN SECTION -->
     <main>
         <h2>Weather Forecast</h2>
+        <div id="main-section">
+
+        </div>
     </main>
     <!-- FOOTER -->
     <footer>

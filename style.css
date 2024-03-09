@@ -31,20 +31,28 @@ header{
     align-items: center;
     background-color: #f2f2f2;
     height: 64px;
-    position: absolute;
-    top: 0;
     width: 100%;
 }
 header h1{
     padding-left: 10px;
 }
 /* SEARCH SECTION STYLE */
-
+.search-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88px;
+    background-color: #ad2f2f;
+}
 /* MAIN CONTAINER STYLE */
 main{
     display: flex;
     flex: 1;
-    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    background-color: aqua;
 }
 /* FOOTER STYLE */
 footer{
@@ -53,4 +61,7 @@ footer{
     align-items: center;
     background-color: #f2f2f2;
     height: 64px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
