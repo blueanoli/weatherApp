@@ -18,11 +18,27 @@ function handleFormSubmit(event) {
 // HTML TEMPLATES -------------------------------------------------------------------------------------------------------
 
 function renderMainHTML(data){
+    let dateObj = new Date(data.location.localtime);
+
+    // Extrahieren der Datumsteile
+    let day = String(dateObj.getDate()).padStart(2, '0');
+    let month = String(dateObj.getMonth() + 1).padStart(2, '0'); // Monate beginnen bei 0
+    let year = dateObj.getFullYear();
+
+    // Extrahieren der Zeitteile
+    let hours = String(dateObj.getHours()).padStart(2, '0');
+    let minutes = String(dateObj.getMinutes()).padStart(2, '0');
+
+    // Zusammenfügen des Datums im gewünschten Format
+    let myDate = `${day}.${month}.${year} - ${hours}:${minutes}`;
+
     document.getElementById('main-section').innerHTML = '';
-    document.getElementById('main-section').innerHTML = `
+    document.getElementById('main-section').innerHTML = /*html*/ `
     <h2>${data.location.name}</h2>
     <p>${data.location.country}</p>
     <p>${data.current.temp_c}°C</p>
     <p>${data.current.condition.text}</p>
+    <img src="${data.current.condition.icon}" alt="weather icon">
+    <p>Last updated: ${myDate} local time</p>
     `;
 }
