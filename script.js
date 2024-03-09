@@ -6,6 +6,7 @@ async function loadWeatherData(cityName) {
     let response = await fetch(URL);
     let data = await response.json();
     renderMainHTML(data);
+    renderForecastHTML(data);
 }
 
 
@@ -34,11 +35,34 @@ function renderMainHTML(data){
 
     document.getElementById('main-section').innerHTML = '';
     document.getElementById('main-section').innerHTML = /*html*/ `
-    <h2>${data.location.name}</h2>
+    <h3>${data.location.name}</h3>
     <p>${data.location.country}</p>
-    <p>${data.current.temp_c}°C</p>
-    <p>${data.current.condition.text}</p>
+    <p>Temperature: ${data.current.temp_c}°C</p>
+    <p>Wind: ${data.current.wind_kph}km/h</p>
+    <p>Humidity: ${data.current.humidity}%</p>
+    <p>Condition: ${data.current.condition.text}</p>
     <img src="${data.current.condition.icon}" alt="weather icon">
     <p>Last updated: ${myDate} local time</p>
     `;
+}
+
+function renderForecastHTML(data) {
+    document.getElementById('forecast-section').innerHTML = '';
+
+    data.forecast.forecastday[0].hour.forEach(hour => {
+        let dateObj = new Date(hour.time);
+        let hours = String(dateObj.getHours()).padStart(2, '0');
+        let minutes = String(dateObj.getMinutes()).padStart(2, '0');
+
+        // Überprüfung, ob die Stunde 06:00, 12:00, 18:00 oder 00:00 entspricht
+        if (hours === '06' || hours === '12' || hours === '18' || hours === '00') {
+            document.getElementById('forecast-section').innerHTML += /*html*/ `
+            <div class="hourly-forecast">
+                <p>${hours}:${minutes}</p>
+                <img src="${hour.condition.icon}" alt="weather icon">
+                <p>${hour.temp_c}°C</p>
+            </div>
+            `;
+        }
+    });
 }
