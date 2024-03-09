@@ -53,19 +53,46 @@ main{
     justify-content: center;
     min-height: 80vh;
     background-color: aqua;
+    width: 50%;
+    margin: 0 auto;
+}
+.weather-data{
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
 }
 /* FORECAST SECTION */
 #forecast-section{
     display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: blue;
 }
 .hourly-forecast{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 100%;
     padding: 10px;
+    gap: 24px;
     background-color: #f2f2f2;
     border-radius: 5px;
+}
+.daily-forecast{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    gap: 24px;
 }
 /* FOOTER STYLE */
 footer{
@@ -78,3 +105,10 @@ footer{
     width: 100%;
     bottom: 0;
 }
+/* MEDIA QUERIES */
+@media screen and (min-width: 1920px) {
+    body {
+        max-width: 1920px; 
+        margin: 0 auto;
+    }
+} 
