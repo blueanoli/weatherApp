@@ -24,6 +24,17 @@ input{
     outline: none;
     border: none;
 }
+/* SCROLLBAR STYLE */
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: #949393;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
 /* HEADER STYLE */
 header{
     display: flex;

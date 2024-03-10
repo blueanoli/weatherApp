@@ -1,7 +1,7 @@
 let MY_API_KEY = 'df282e64b5914978a9272441240903';
 
 async function loadWeatherData(cityName) {
-    let URL = `https://api.weatherapi.com/v1/forecast.json?key=${MY_API_KEY}&q=${cityName}&days=3&aqi=no&alerts=no`;
+    let URL = `https://api.weatherapi.com/v1/forecast.json?key=${MY_API_KEY}&q=${cityName}&days=4&aqi=no&alerts=no`;
     let response = await fetch(URL);
     let data = await response.json();
     renderMainHTML(data);
@@ -56,7 +56,7 @@ function renderMainHTML(data){
     <div class="weather-data">
         <h3>${data.location.name}</h3>
         <p>${data.location.country}</p>
-        <p>Temperature: ${data.current.temp_c}°C</p>
+        <p>Temperature: ${Math.round(data.current.temp_c)}°C</p>
         <p>Wind: ${data.current.wind_kph}km/h ${data.current.wind_dir}</p>
         <p>Humidity: ${data.current.humidity}%</p>
         <p>Condition: ${data.current.condition.text}</p>
@@ -78,7 +78,7 @@ function renderHourlyForecastHTML(data) {
             <div class="hourly-forecast">
                 <p>${hours}:${minutes}</p>
                 <img src="${hour.condition.icon}" alt="weather icon">
-                <p>${hour.temp_c}°C</p>
+                <p>${Math.round(hour.temp_c)}°C</p>
             </div>`;
         }
     });
@@ -87,15 +87,16 @@ function renderHourlyForecastHTML(data) {
 function renderDailyForecastHTML(data) {
     document.getElementById('daily-forecast-section').innerHTML = '';
 
-    data.forecast.forecastday.forEach(day => {
+    for (let i = 1; i < data.forecast.forecastday.length; i++) {
+        let day = data.forecast.forecastday[i];
         let dateObj = new Date(day.date);
-        let dayName = dateObj.toLocaleString('en-us', {weekday: 'long'});
+        let dayName = dateObj.toLocaleString('en-us', { weekday: 'long' });
 
-        document.getElementById('daily-forecast-section').innerHTML += /*html*/ `
+        document.getElementById('daily-forecast-section').innerHTML += /*html*/`
         <div class="daily-forecast">
             <h3>${dayName}</h3>
             <img src="${day.day.condition.icon}" alt="weather icon">
-            <p>Max / Min: ${day.day.maxtemp_c}°C / ${day.day.mintemp_c}°C</p>
+            <p>Max / Min: ${Math.round(day.day.maxtemp_c)}°C / ${Math.round(day.day.mintemp_c)}°C</p>
         </div>`;
-    })
+    }
 }
