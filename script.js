@@ -1,15 +1,14 @@
 let MY_API_KEY = 'df282e64b5914978a9272441240903';
 
-
 async function loadWeatherData(cityName) {
-    let URL = `https://api.weatherapi.com/v1/forecast.json?key=${MY_API_KEY}&q=${cityName}&days=1&aqi=no&alerts=no`;
+    let URL = `https://api.weatherapi.com/v1/forecast.json?key=${MY_API_KEY}&q=${cityName}&days=3&aqi=no&alerts=no`;
     let response = await fetch(URL);
     let data = await response.json();
     renderMainHTML(data);
     renderHourlyForecastHTML(data);
     renderDailyForecastHTML(data);
+    renderGreetingHTML();
 }
-
 
 function handleFormSubmit(event) {
     event.preventDefault();
@@ -17,7 +16,28 @@ function handleFormSubmit(event) {
     loadWeatherData(cityName); 
 }
 
+function getGreeting(){
+    let dateObj = new Date();
+    let hours = dateObj.getHours();
+
+    if(hours >= 6 && hours < 12){
+        return 'Good morning';
+    }
+    else if(hours >= 12 && hours < 18){
+        return 'Good afternoon';
+    }
+    else{
+        return 'Good evening';
+    }
+}
+
 // HTML TEMPLATES -------------------------------------------------------------------------------------------------------
+function renderGreetingHTML(){
+    document.getElementById('greeting-section').innerHTML = '';
+    
+    document.getElementById('greeting-section').innerHTML = /*html*/ `
+    <h3>${getGreeting()}</h3>`;
+}
 
 function renderMainHTML(data){
     let dateObj = new Date(data.location.localtime);
@@ -68,9 +88,12 @@ function renderDailyForecastHTML(data) {
     document.getElementById('daily-forecast-section').innerHTML = '';
 
     data.forecast.forecastday.forEach(day => {
+        let dateObj = new Date(day.date);
+        let dayName = dateObj.toLocaleString('en-us', {weekday: 'long'});
+
         document.getElementById('daily-forecast-section').innerHTML += /*html*/ `
         <div class="daily-forecast">
-            <p>${day.date}</p>
+            <h3>${dayName}</h3>
             <img src="${day.day.condition.icon}" alt="weather icon">
             <p>Max / Min: ${day.day.maxtemp_c}°C / ${day.day.mintemp_c}°C</p>
         </div>`;
