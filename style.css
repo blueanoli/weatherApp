@@ -63,12 +63,14 @@ main{
     align-items: center;
     justify-content: center;
     min-height: fit-content;
-    background-color: aqua;
     width: 50%;
     margin: 0 auto;
 }
+.background-img {
+    background-size: cover; 
+    background-position: center; 
+}
 .weather-data{
-    background-color: brown;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -77,7 +79,7 @@ main{
     padding: 10px;
 }
 /* FORECAST SECTION */
-#forecast-section{
+#hourly-forecast-section{
     display: flex;
     width: 50%;
     flex-direction: column;
@@ -85,7 +87,6 @@ main{
     justify-content: center;
     gap: 10px;
     padding: 10px;
-    background-color: blue;
 }
 .hourly-forecast{
     display: flex;
@@ -94,8 +95,10 @@ main{
     width: 100%;
     padding: 10px;
     gap: 24px;
-    background-color: #f2f2f2;
     border-radius: 5px;
+}
+#daily-forecast-section{
+    background-color: transparent;
 }
 .daily-forecast{
     display: flex;

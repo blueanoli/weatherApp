@@ -63,10 +63,25 @@ function renderMainHTML(data){
         <img src="${data.current.condition.icon}" alt="weather icon">
         <p>Last updated: ${myDate} local time</p>
     </div>`;
+    renderMainHTMLBackground();
+}
+
+function renderMainHTMLBackground(){
+    let dateObj = new Date();
+    let hours = dateObj.getHours();
+
+    if(hours >= 6 && hours < 18){
+        document.getElementById('img-container').style.backgroundImage = "url('./img/morning.jpg')";
+        document.getElementById('img-container').classList.add('background-img');
+    }
+    else{
+        document.getElementById('img-container').style.backgroundImage = "url('./img/evening.jpg')";
+        document.getElementById('img-container').classList.add('background-img');
+    }
 }
 
 function renderHourlyForecastHTML(data) {
-    document.getElementById('forecast-section').innerHTML = '';
+    document.getElementById('hourly-forecast-section').innerHTML = '';
 
     data.forecast.forecastday[0].hour.forEach(hour => {
         let dateObj = new Date(hour.time);
@@ -74,7 +89,7 @@ function renderHourlyForecastHTML(data) {
         let minutes = String(dateObj.getMinutes()).padStart(2, '0');
 
         if (hours === '06' || hours === '12' || hours === '18' || hours === '00') {
-            document.getElementById('forecast-section').innerHTML += /*html*/ `
+            document.getElementById('hourly-forecast-section').innerHTML += /*html*/ `
             <div class="hourly-forecast">
                 <p>${hours}:${minutes}</p>
                 <img src="${hour.condition.icon}" alt="weather icon">
@@ -85,7 +100,7 @@ function renderHourlyForecastHTML(data) {
 }
 
 function renderDailyForecastHTML(data) {
-    document.getElementById('daily-forecast-section').innerHTML = '';
+    document.getElementById('daily-forecast-section').innerHTML = `<h3>3-day forecast for ${data.location.name}</h3>`;
 
     for (let i = 1; i < data.forecast.forecastday.length; i++) {
         let day = data.forecast.forecastday[i];
