@@ -13,6 +13,7 @@ async function loadWeatherData(cityName) {
 function handleFormSubmit() {
     let cityName = document.getElementById('search-input').value;
     loadWeatherData(cityName); 
+    document.getElementById('search-input').value = '';
 }
 
 function getGreeting(){
