@@ -19,7 +19,7 @@
     </header>
     <!-- SEARCH SECTION -->
     <section class="search-section">
-        <form id="search-form" onsubmit="handleFormSubmit(event)">
+        <form id="search-form" onsubmit="handleFormSubmit(event); return false">
             <input type="text" id="search-input" placeholder="Enter a city" required>
             <button type="submit">Search</button>
         </form>

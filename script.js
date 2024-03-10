@@ -10,8 +10,7 @@ async function loadWeatherData(cityName) {
     renderGreetingHTML();
 }
 
-function handleFormSubmit(event) {
-    event.preventDefault();
+function handleFormSubmit() {
     let cityName = document.getElementById('search-input').value;
     loadWeatherData(cityName); 
 }
@@ -60,7 +59,6 @@ function renderMainHTML(data){
         <p>Wind: ${data.current.wind_kph}km/h ${data.current.wind_dir}</p>
         <p>Humidity: ${data.current.humidity}%</p>
         <p>Condition: ${data.current.condition.text}</p>
-        <img src="${data.current.condition.icon}" alt="weather icon">
         <p>Last updated: ${myDate} local time</p>
     </div>`;
     renderMainHTMLBackground();
