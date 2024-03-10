@@ -1,6 +1,7 @@
 /* GENERAL STYLE */
 *{
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
 }
 html{
     scroll-behavior: smooth;
@@ -23,6 +24,11 @@ a:hover{
 input{
     outline: none;
     border: none;
+}
+button{
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 /* SCROLLBAR STYLE */
 ::-webkit-scrollbar{
@@ -55,6 +61,21 @@ header h1{
     height: 88px;
     background-color: #ad2f2f;
 }
+/* GREETING SECTION STYLE */
+#greeting-section{
+    height: 200px;
+    width: 100%;
+}
+#greeting-section h3{
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.background-img {
+    background-size: cover; 
+    background-position: center; 
+}
 /* MAIN CONTAINER STYLE */
 main{
     display: flex;
@@ -65,10 +86,6 @@ main{
     min-height: fit-content;
     width: 50%;
     margin: 0 auto;
-}
-.background-img {
-    background-size: cover; 
-    background-position: center; 
 }
 .weather-data{
     display: flex;

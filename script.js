@@ -71,12 +71,12 @@ function renderMainHTMLBackground(){
     let hours = dateObj.getHours();
 
     if(hours >= 6 && hours < 18){
-        document.getElementById('img-container').style.backgroundImage = "url('./img/morning.jpg')";
-        document.getElementById('img-container').classList.add('background-img');
+        document.getElementById('greeting-section').style.backgroundImage = "url('./img/morning.jpg')";
+        document.getElementById('greeting-section').classList.add('background-img');
     }
     else{
-        document.getElementById('img-container').style.backgroundImage = "url('./img/evening.jpg')";
-        document.getElementById('img-container').classList.add('background-img');
+        document.getElementById('greeting-section').style.backgroundImage = "url('./img/evening.jpg')";
+        document.getElementById('greeting-section').classList.add('background-img');
     }
 }
 
