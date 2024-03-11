@@ -12,33 +12,34 @@
 </head>
 
 <body onload="loadWeatherData('Vienna')">
-    <!-- HEADER -->
-    <header>
-        <h1>Weather App</h1>
-
-    </header>
-    <!-- SEARCH SECTION -->
-    <section class="search-section">
-        <form id="search-form" onsubmit="handleFormSubmit(); return false">
-            <input type="text" id="search-input" placeholder="Enter a city" required>
-            <button type="submit">Search</button>
-        </form>
-    </section>
-    <!-- MAIN SECTION -->
-    <main>
-        <div id="greeting-section">
-            <div id="img-container"></div>
-        </div>
-        <div id="main-section"></div>
-        <div id="hourly-forecast-section"></div>
-        <div id="daily-forecast-section"></div>
-    </main>
-    <!-- FOOTER -->
-    <footer>
-        <p>Weather App</p>
-        <a href="https://icons8.de">Icons by Icons8</a>
-        <a href="https://de.vecteezy.com/gratis-vektor/biologisch">Graphics by Vecteezy</a>
-    </footer>
+    <div class="page-content">
+        <!-- HEADER -->
+        <header>
+            <h1>Weather App</h1>
+        </header>
+        <!-- SEARCH SECTION -->
+        <section class="search-section">
+            <form id="search-form" onsubmit="handleFormSubmit(); return false">
+                <input type="text" id="search-input" placeholder="Enter a city" required>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        <!-- MAIN SECTION -->
+        <main>
+            <div id="greeting-section">
+                <div id="img-container"></div>
+            </div>
+            <div id="main-section"></div>
+            <div id="hourly-forecast-section"></div>
+            <div id="daily-forecast-section"></div>
+        </main>
+        <!-- FOOTER -->
+        <footer>
+            <p>Weather App</p>
+            <a href="https://icons8.de">Icons by Icons8</a>
+            <a href="https://de.vecteezy.com/gratis-vektor/biologisch">Graphics by Vecteezy</a>
+        </footer>
+    </div>
 </body>
 
 </html>

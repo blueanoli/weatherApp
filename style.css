@@ -30,15 +30,19 @@ button{
     border: none;
     cursor: pointer;
 }
+.page-content{
+    min-height: 100vh;
+    position: relative;
+}
 /* SCROLLBAR STYLE */
 ::-webkit-scrollbar{
     width: 10px;
 }
 ::-webkit-scrollbar-track{
-    background-color: #949393;
+    background-color: #f2f2f2;
 }
 ::-webkit-scrollbar-thumb{
-    background-color: #f2f2f2;
+    background-color: #949393;
     border-radius: 10px;
 }
 /* HEADER STYLE */
@@ -116,6 +120,7 @@ main{
 }
 #daily-forecast-section{
     background-color: transparent;
+    min-height: 300px;
 }
 .daily-forecast{
     display: flex;
@@ -132,7 +137,7 @@ footer{
     align-items: center;
     background-color: #f2f2f2;
     height: 44px;
-    position: static;
+    position: absolute;
     width: 100%;
     bottom: 0;
 }
