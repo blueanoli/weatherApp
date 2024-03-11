@@ -54,7 +54,7 @@ function renderMainHTML(data){
     document.getElementById('main-section').innerHTML = '';
     document.getElementById('main-section').innerHTML = /*html*/ `
     <div class="weather-data">
-        <h3>${data.location.name}</h3>
+        <h3 class="city-name">${data.location.name}</h3>
         <p>${data.location.country}</p>
         <p>Temperature: ${Math.round(data.current.temp_c)}°C</p>
         <p>Wind: ${data.current.wind_kph}km/h ${data.current.wind_dir}</p>
@@ -99,7 +99,7 @@ function renderHourlyForecastHTML(data) {
 }
 
 function renderDailyForecastHTML(data) {
-    document.getElementById('daily-forecast-section').innerHTML = `<h3>3-day forecast for ${data.location.name}</h3>`;
+    document.getElementById('daily-forecast-section').innerHTML = `<h3 class="daily-forecast-header">3-day forecast for ${data.location.name}</h3>`;
 
     for (let i = 1; i < data.forecast.forecastday.length; i++) {
         let day = data.forecast.forecastday[i];
